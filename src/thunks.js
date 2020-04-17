@@ -7,9 +7,12 @@ import {
 import * as api from './api';
 import { PATHS } from './modules/paths';
 
-const handleError = (error) => () => {
-  // TODO: it would be nice to show a banner notifying the user of an error
-  console.log(error);
+const handleError = (error) => (dispatch) => {
+  dispatch(
+    update(MAIN_REDUCER, 'show error', {
+      error,
+    }),
+  );
 };
 
 const getRepoData = () => async (dispatch, getState) => {
