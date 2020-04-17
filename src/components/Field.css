@@ -1,0 +1,28 @@
+.field-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-label {
+  margin-bottom: 0.5rem;
+}
+
+.field-input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-input {
+  padding: 0.5rem 0.3rem;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.field-input:focus {
+  border-bottom: 2px solid black;
+}
+
+.field-error {
+  font-size: 0.825rem;
+  color: red;
+}

@@ -1,0 +1,22 @@
+.sign-in {
+  margin: auto;
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 2rem;
+}
+
+.title-emoji {
+  font-size: 3rem; 
+}
+
+.form {
+  flex: 0 0;
+  flex-direction: column;
+  text-align: center;
+}
+
+.help {
+  font-size: 0.825rem;
+}

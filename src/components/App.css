@@ -1,8 +1,8 @@
 .App {
-  background-color: rgb(30, 30, 30);
+  background-color: rgb(250, 250, 245);
+  color: rgb(51, 51, 51);
   display: flex;
   flex: 0 0 100%;
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
-  color: white;
 }

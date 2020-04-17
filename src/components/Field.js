@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Field.css';
+
 const Field = ({
   label,
   name,
@@ -13,13 +15,24 @@ const Field = ({
   }
 }) => {
   return (
-    <div>
-      <label htmlFor={name}>
+    <div className="field-wrapper">
+      <label htmlFor={name} className="field-label">
         {label}
       </label>
-      <div>
-        <input {...input} autoFocus={autoFocus} placeholder={placeholder} name={name} type={type} />
-        {touched && (error && <span>{error}</span>)}
+      <div className="field-input-wrapper">
+        <input
+          className="field-input"
+          autoFocus={autoFocus}
+          placeholder={placeholder}
+          name={name}
+          type={type}
+          {...input}
+        />
+        <div>
+          {touched &&
+            (error && <span className="field-error">{error}</span>)
+          }
+        </div>
       </div>
     </div>
   );

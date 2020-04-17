@@ -5,9 +5,9 @@ import { useDispatch } from 'react-redux';
 import { submitAccessToken } from '../thunks';
 
 import Field from './Field';
-
 import { validateAccessToken } from './validate';
-import './App.css';
+
+import './SignIn.css';
 
 const ACCESS_TOKEN_FORM = 'accessToken';
 const formConfig = {
@@ -22,26 +22,31 @@ const SignIn = ({ handleSubmit, submitting, pristine, invalid }) => {
   };
 
   return (
-    <div>
-      Sign in
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <div className="sign-in">
+      <div className="title">
+        <span aria-label="emoji" role="img" className="title-emoji">🧐</span>
+        <h1>Welcome to IssueTracker</h1>
+      </div>
+      <form onSubmit={handleSubmit(onSubmit)} className="form">
         <ReduxFormField
           autoFocus
-          label="Enter a Github access token"
+          label="To sign in, enter a Github access token"
           name='accessToken'
           placeholder="c0b4ac00746f91a6ac04a3b4c171e3b04e862275"
           component={Field}
         />
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/settings/tokens"
-        >
-          What's that?
-        </a>
         <button disabled={submitting || pristine || invalid} type="submit">
           Submit
         </button>
+        <div className="help">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/settings/tokens"
+          >
+            What's that?
+          </a>
+        </div>
       </form>
     </div>
   )
