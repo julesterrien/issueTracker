@@ -21,7 +21,7 @@ Select a repo
 View and sort issues
 <br />
 ![Issue Tracker](https://i.imgur.com/5DtoGCU.png "Issue Tracker")
-
+![Issue Tracker Mobile](https://i.imgur.com/iEnE7e1.png "Issue Tracker Mobile")
 <br />
 
 Notes: 
