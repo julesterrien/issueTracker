@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="field-wrapper"
+>
+  <label
+    className="field-label"
+    htmlFor="fieldName"
+  />
+  <div
+    className="field-input-wrapper"
+  >
+    <input
+      autoFocus={false}
+      className="field-input"
+      name="fieldName"
+      placeholder="placeholder"
+      type="text"
+    />
+    <span
+      className="field-error"
+    />
+  </div>
+</div>
+`;

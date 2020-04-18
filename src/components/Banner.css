@@ -1,0 +1,9 @@
+.banner {
+  position: fixed;
+  z-index: 1;
+  padding: 1rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background: orange;
+}
