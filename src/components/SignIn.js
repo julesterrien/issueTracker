@@ -7,7 +7,7 @@ import { submitAccessToken } from '../thunks';
 
 import Field from './Field';
 import Loader from './Loader';
-import { validateAccessToken } from './validate';
+import { validateAccessToken } from '../validate';
 
 import './SignIn.css';
 

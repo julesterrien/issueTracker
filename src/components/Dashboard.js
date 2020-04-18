@@ -12,7 +12,7 @@ import RepoCard from './RepoCard';
 import Table from './Table';
 
 import './dashboard.css';
-import { sortIssuesByDate } from './utils';
+import { sortIssuesByDate } from '../utils';
 import { HEADERS } from './constants';
 
 const Dashboard = () => {

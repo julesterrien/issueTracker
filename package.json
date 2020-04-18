@@ -10,7 +10,6 @@
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "moment": "^2.24.0",
-    "nodemon": "^2.0.2",
     "novux": "^1.0.3",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -26,8 +25,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "start:api": "nodemon api/server.js --exec babel-node --presets babel-preset-env"
+    "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:8080",
   "eslintConfig": {
