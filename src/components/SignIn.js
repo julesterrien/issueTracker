@@ -14,7 +14,7 @@ import './SignIn.css';
 const ACCESS_TOKEN_FORM = 'accessToken';
 const formConfig = {
   form: ACCESS_TOKEN_FORM,
-  validate: validateAccessToken
+  validate: validateAccessToken,
 };
 
 const SignIn = ({ handleSubmit, submitting, pristine, invalid }) => {
@@ -46,7 +46,7 @@ const SignIn = ({ handleSubmit, submitting, pristine, invalid }) => {
           type="submit"
           className={cn('submit-btn', {
             disabled: submitting || pristine || invalid,
-            isLoading
+            isLoading,
           })}
         >
           {isLoading ? <Loader /> : 'Submit'}

@@ -1,19 +1,18 @@
 import React from 'react';
 import moment from 'moment';
-import { update } from 'novux';
 import cn from 'classnames';
 import shortId from 'shortid';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { MAIN_REDUCER } from '../modules/reducers';
+import { sortIssues } from '../thunks';
 
 import Loader from './Loader';
 import RepoCard from './RepoCard';
 import Table from './Table';
 
 import './dashboard.css';
-import { sortIssuesByDate } from '../utils';
-import { HEADERS } from './constants';
+import { HEADERS } from '../constants';
 
 const Dashboard = () => {
   const repos = useSelector(state => state[MAIN_REDUCER].repos);
@@ -23,12 +22,7 @@ const Dashboard = () => {
 
   const dispatch = useDispatch();
   const onClickSort = ({ key, order }) => {
-    const sortedIssues = sortIssuesByDate({ issues, key, order });
-    dispatch(
-      update(MAIN_REDUCER, 'sort issues', {
-        issues: sortedIssues
-      })
-    );
+    dispatch(sortIssues({ issues, key, order }));
   };
 
   if (!repos) {
@@ -72,6 +66,7 @@ const Dashboard = () => {
               placeholder="This repo has no open issues"
               headers={HEADERS.map(header => ({
                 ...header,
+                // if a header is sortable, add an onClick handler that the generic Table can call
                 ...(header.sortable && {
                   onClickSort: order => onClickSort({ key: header.key, order })
                 })
