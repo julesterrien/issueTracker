@@ -28,11 +28,9 @@ const Field = ({
           type={type}
           {...input}
         />
-        <div>
-          {touched &&
-            (error && <span className="field-error">{error}</span>)
-          }
-        </div>
+        {touched &&
+          (error && <span className="field-error">{error}</span>)
+        }
       </div>
     </div>
   );

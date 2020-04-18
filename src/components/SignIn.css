@@ -20,3 +20,23 @@
 .help {
   font-size: 0.825rem;
 }
+
+.submit-btn {
+  background: white;
+  border: 0;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.submit-btn:hover:not(.disabled):not(.isLoading) {
+  background: rgb(51, 51, 51);
+  color: white;
+}
+
+.submit-btn.disabled {
+  cursor: initial;
+}

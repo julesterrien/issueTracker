@@ -1,17 +1,15 @@
 import { update } from 'novux';
 
-import {
-  MAIN_REDUCER, ROUTER_REDUCER
-} from './modules/reducers';
+import { MAIN_REDUCER, ROUTER_REDUCER } from './modules/reducers';
 
 import * as api from './api';
 import { PATHS } from './modules/paths';
 
-const handleError = (error) => (dispatch) => {
+const handleError = error => dispatch => {
   dispatch(
     update(MAIN_REDUCER, 'show error', {
-      error,
-    }),
+      error
+    })
   );
 };
 
@@ -26,13 +24,13 @@ const getRepoData = () => async (dispatch, getState) => {
   } else if (data) {
     dispatch(
       update(MAIN_REDUCER, 'save repos', {
-        repos: data,
+        repos: data
       })
-    )
+    );
   }
 };
 
-export const submitAccessToken = (accessToken) => async (dispatch) => {
+export const submitAccessToken = accessToken => async dispatch => {
   const { data, error, status } = await api.getUser(accessToken);
 
   if (error || status !== 200) {
@@ -41,27 +39,33 @@ export const submitAccessToken = (accessToken) => async (dispatch) => {
     dispatch(
       update(MAIN_REDUCER, 'save user data', {
         accessToken,
-        username: data.login,
+        username: data.login
       })
     );
 
     dispatch(
       update(ROUTER_REDUCER, 'visit dashboard', {
-        location: PATHS.dashboard,
+        location: PATHS.dashboard
       })
-    )
+    );
 
     dispatch(getRepoData());
   }
 };
 
-export const getIssuesForRepo = (repoFullName) => async (dispatch, getState) => {
+export const getIssuesForRepo = repoFullName => async (dispatch, getState) => {
+  dispatch(
+    update(MAIN_REDUCER, 'toggle isLoading', {
+      isLoading: true,
+    }),
+  );
+
   const state = getState();
   const accessToken = state[MAIN_REDUCER].accessToken;
 
   const { data, error, status } = await api.getIssues({
     repoFullName,
-    accessToken,
+    accessToken
   });
 
   if (error || status !== 200) {
@@ -69,8 +73,15 @@ export const getIssuesForRepo = (repoFullName) => async (dispatch, getState) => 
   } else if (data) {
     dispatch(
       update(MAIN_REDUCER, 'save issues', {
-        issues: data,
+        issues: data
       })
     );
   }
+
+  dispatch(
+    update(MAIN_REDUCER, 'toggle isLoading', {
+      isLoading: false,
+    }),
+  );
+
 };

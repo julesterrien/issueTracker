@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import cn from 'classnames';
 import { Field as ReduxFormField, reduxForm } from 'redux-form';
 import { useDispatch } from 'react-redux';
 
 import { submitAccessToken } from '../thunks';
 
 import Field from './Field';
+import Loader from './Loader';
 import { validateAccessToken } from './validate';
 
 import './SignIn.css';
@@ -12,31 +14,42 @@ import './SignIn.css';
 const ACCESS_TOKEN_FORM = 'accessToken';
 const formConfig = {
   form: ACCESS_TOKEN_FORM,
-  validate: validateAccessToken,
+  validate: validateAccessToken
 };
 
 const SignIn = ({ handleSubmit, submitting, pristine, invalid }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const onSubmit = ({ accessToken }) => {
-    dispatch(submitAccessToken(accessToken))
+    setIsLoading(true);
+    dispatch(submitAccessToken(accessToken));
   };
 
   return (
     <div className="sign-in">
       <div className="title">
-        <span aria-label="emoji" role="img" className="title-emoji">🧐</span>
+        <span aria-label="emoji" role="img" className="title-emoji">
+          🧐
+        </span>
         <h1>Welcome to IssueTracker</h1>
       </div>
       <form onSubmit={handleSubmit(onSubmit)} className="form">
         <ReduxFormField
           autoFocus
           label="To sign in, enter a Github access token"
-          name='accessToken'
+          name="accessToken"
           placeholder="c0b4ac00746f91a6ac04a3b4c171e3b04e862275"
           component={Field}
         />
-        <button disabled={submitting || pristine || invalid} type="submit">
-          Submit
+        <button
+          disabled={submitting || pristine || invalid}
+          type="submit"
+          className={cn('submit-btn', {
+            disabled: submitting || pristine || invalid,
+            isLoading
+          })}
+        >
+          {isLoading ? <Loader /> : 'Submit'}
         </button>
         <div className="help">
           <a
@@ -49,7 +62,7 @@ const SignIn = ({ handleSubmit, submitting, pristine, invalid }) => {
         </div>
       </form>
     </div>
-  )
+  );
 };
 
 const SignInForm = reduxForm(formConfig)(SignIn);

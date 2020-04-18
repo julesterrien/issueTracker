@@ -1,0 +1,53 @@
+.dashboard {
+  margin: auto;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.dashboard.twoColumn {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  width: 100vw;
+}
+
+.repos {
+  width: 100%;
+}
+
+@media only screen and (min-width: 450px) {
+  .dashboard.twoColumn {
+    flex-direction: row;
+  }
+
+  .dashboard.twoColumn .repos {
+    width: 20%;
+  }
+  
+  .dashboard.twoColumn .issues {
+    width: 80%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.title {
+  margin-bottom: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.repos-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.issue-link {
+  color: gray;
+}

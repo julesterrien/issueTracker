@@ -1,0 +1,116 @@
+.table {
+  width: 100%;
+  border: none;
+  table-layout: fixed;
+}
+
+td .tdBefore {
+  display: none;
+}
+
+tr td, tr th {
+  border: none;
+  font-size: 1rem;
+  text-align: left;
+  text-transform: none;
+}
+
+tr th {
+  color: gray;
+  padding: 1.25rem 0.2rem;
+}
+
+tr th:last-child, th:first-child {
+  padding: 1.25rem 0;
+}
+
+tr td {
+  color: gray;
+  padding: 1.25rem 0.2rem;
+}
+
+@media only screen and (max-width: 450px) {
+  /*
+    Force table elements to not behave like tables anymore
+    Hide table headers (but not display: none;, for accessibility)
+  */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead tr, th tr {
+    position: absolute;
+    top: -625rem;
+    left: -625rem;
+    border: none;
+    font-size: 1rem;
+    line-height: 1.375rem;
+  }
+
+  tbody tr {
+    background: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  tr td {
+    padding: 0.5rem;
+  }
+
+  td.pivoted {
+    /* Behave like a "row" */
+    border: none;
+    position: relative;
+    padding-left: calc(40% + 0.625rem);
+    text-align: left;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+  }
+
+  td .tdBefore {
+    /* Now behave like a table header */
+    /* .sansSerif(); */
+    position: absolute;
+    display: block;
+
+    /* Top/left values mimic padding */
+    left: 1rem;
+    width: calc(50% - 1.25rem);
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    text-align: left;
+  }
+}
+
+.column-0 {
+  width: 40%;
+}
+
+.column-1 {
+  width: 20%;
+}
+
+.column-2 {
+  width: 20%;
+}
+
+.column-3 {
+  width: 20%;
+}
+
+.sort-btn {
+  padding: 0.2rem;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+  outline: none;
+}
+
