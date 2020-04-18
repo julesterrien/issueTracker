@@ -69,7 +69,7 @@ const Dashboard = () => {
           <h1 className="title">Issues</h1>
           <div className="issues-list">
             <Table
-              placeholder={<div>This repo has no open issues</div>}
+              placeholder="This repo has no open issues"
               headers={HEADERS.map(header => ({
                 ...header,
                 ...(header.sortable && {

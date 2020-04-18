@@ -33,7 +33,7 @@ const Table = ({ headers, rows, placeholder }) => {
       </thead>
       <tbody>
         {!rows.length ? (
-          <tr>{placeholder}</tr>
+          <tr><td>{placeholder}</td></tr>
         ) : (
           rows.map(columns => (
             <tr key={shortId.generate()}>
